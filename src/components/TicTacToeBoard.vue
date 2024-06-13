@@ -61,7 +61,7 @@ const resetGame = () => {
 
 <template>
   <div>
-    <h2>Tre-i-rad</h2>
+    <h2>Luffarschack</h2>
     <p v-if="props.players[currentPlayer]">Det är {{ props.players[currentPlayer] }}s tur att spela</p>
 
     <!-- Spelbräde -->
