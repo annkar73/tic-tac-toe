@@ -1,29 +1,21 @@
 <script setup lang="ts">
 import { ref, defineEmits } from 'vue';
 
-const playerX = ref('');
-const playerO = ref('');
+const emit = defineEmits(['set-player-name']);
+const playerName = ref('');
 
-const emit = defineEmits(['set-names']);
-
-const submitNames = () => {
-    const names = { X: playerX.value, O: playerO.value };
-    localStorage.setItem('playerNames', JSON.stringify(names));
-    emit('set-names', names);
+const submitPlayerName = () => {
+  if (playerName.value.trim()) {
+    emit('set-player-name', playerName.value);
+    playerName.value = '';
+  }
 };
-
 </script>
 
 <template>
-    <div>
-        <form @submit.prevent="submitNames">
-            <input v-model="playerX" placeholder="Spelare X" required>
-            <input v-model="playerO" placeholder="Spelare O" required>
-            <button type="submit">Starta spelet</button>
-        </form>
-    </div>
-
+  <div>
+    <h2>Lägg till spelare</h2>
+    <input v-model="playerName" @keyup.enter="submitPlayerName" placeholder="Ange spelarnamn" />
+    <button @click="submitPlayerName">Lägg till spelare</button>
+  </div>
 </template>
-
-<style scoped>
-</style>
