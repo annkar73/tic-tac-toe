@@ -61,8 +61,7 @@ const resetGame = () => {
 
 <template>
   <div>
-    <h2>Luffarschack</h2>
-    <p v-if="props.players[currentPlayer]">Det är {{ props.players[currentPlayer] }}s tur att spela</p>
+    <p v-if="props.players[currentPlayer]">Det är <strong>{{ props.players[currentPlayer] }}s</strong> tur att spela</p>
 
     <!-- Spelbräde -->
     <div class="board">
@@ -75,7 +74,7 @@ const resetGame = () => {
     <div v-if="winner !== undefined && winner.vaue != ''">
       <p v-if="winner !== 'Oavgjort'"><strong>Vinnare:</strong> {{ props.players[winner] }} ({{ winner }})</p>
       <p v-else>Oavgjort</p>
-      <button @click="resetGame">Spela igen</button>
+      <button @click="resetGame" class="resetBtn">Spela igen</button>
     </div>
   </div>
 </template>
@@ -85,7 +84,7 @@ const resetGame = () => {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 5px;
+  gap: 7px;
 }
 .cell {
   display: flex;
@@ -93,12 +92,26 @@ const resetGame = () => {
   justify-content: center;
   width: 100px;
   height: 100px;
-  background-color: antiquewhite;
+  background-color: olive;
+  color: antiquewhite;
   border: 1px solid darkslategray;
-  font-size: 24px;
+  font-family: "Rock Salt", cursive;
+  font-size: 50px;
+  font-weight: 700;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 .cell:hover {
-  background-color: turquoise;
+  background-color: darkolivegreen;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 3px solid darkslategray;
+}
+.resetBtn {
+    background-color: olive;
+    color: antiquewhite;
+    font-weight: bold;
+}
+.resetBtn:hover {
+    background-color: darkolivegreen;
 }
 </style>

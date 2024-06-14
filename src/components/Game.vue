@@ -77,7 +77,9 @@ watch([gamesPlayed, winsX, winsO], () => {
 <template>
     <!-- Aktiva spelare -->
     <div v-if="playersSet">
-        <h3>Aktiva spelare:</h3>
+        <h2>Luffarschack</h2>
+
+        <h4>Aktiva spelare:</h4>
         <ul class="active">
             <li v-for="(name, symbol) in players" :key="symbol"><strong>{{ symbol }}:</strong> {{ name }}</li>
         </ul>
