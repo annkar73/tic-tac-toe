@@ -14,6 +14,7 @@ const playersSet = ref(false);
 const gamesPlayed = ref(0);
 const winsX = ref(0); // Antal vinster för spelare X
 const winsO = ref(0); // Antal vinster för spelare O
+const showStats = ref(false); 
 
 const setPlayerName = (name) => {
     if (currentPlayer.value === 'X') {
@@ -41,6 +42,21 @@ const saveStatsToLocalStorage = () => {
         winsO: winsO.value
     };
     localStorage.setItem('gameStats', JSON.stringify(stats));
+};
+
+const resetGame = () => {
+    players.value = { X: '', O: ''};
+    currentPlayer.value = 'X';
+    playersSet.value = false;
+    gamesPlayed.value = 0;
+    winsX.value = 0;
+    winsO.value = 0;
+    localStorage.removeItem('players');
+    localStorage.removeItem('gameStats');
+};
+
+const toggleStats = () => {
+    showStats.value = !showStats.value;
 };
 
 onMounted(() => {
@@ -90,13 +106,16 @@ watch([gamesPlayed, winsX, winsO], () => {
     <!-- Visa PlayerForm.vue en gång för att lägga till spelare -->
     <div>
         <PlayerForm @set-player-name="setPlayerName" v-if="!playersSet" />
-        <TicTacToeBoard :players="players" v-if="playersSet" />
+        <TicTacToeBoard :players="players" v-if="playersSet" @game-over="updateStats" />
 
-
+        <!-- Knapp för att visa statistik -->
+        <button @click="toggleStats">Visa vinnarstatistik</button>
         <!-- Statistik över vinnare -->
-        <div>
-            <WinnerStats :winsX="winsX" :winsO="winsO" :gamesPlayed="gamesPlayed" v-if="gamesPlayed > 0" />
+        <div v-if="showStats && gamesPlayed > 0">
+            <WinnerStats :winsX="winsX" :winsO="winsO" :gamesPlayed="gamesPlayed" />
         </div>
+        <!-- Knapp för att återställa spelet -->
+         <button @click="resetGame">Börja från början</button>
 
     </div>
 </template>
@@ -104,5 +123,8 @@ watch([gamesPlayed, winsX, winsO], () => {
 <style scoped>
 .active {
     list-style-type: none;
+}
+button {
+    margin: 10px;
 }
 </style>
