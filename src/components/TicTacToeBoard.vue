@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps } from 'vue';
+import { ref, defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
   players: {
@@ -7,6 +7,8 @@ const props = defineProps({
     required: true
   }
 });
+
+const emit = defineEmits(['game-over']);
 
 const board = ref(Array(9).fill('')); 
 const currentPlayer = ref('X'); 
@@ -19,8 +21,10 @@ const makeMove = (index) => {
 
     if (checkWinner()) {
       winner.value = currentPlayer.value; // sätt vinnaren till aktuell spelare
+      emit('game-over', winner.value);
     } else if (board.value.every(cell => cell !== '')) {
       winner.value = 'Oavgjort';
+      emit('game-over', 'draw');
     } else {
       currentPlayer.value = currentPlayer.value === 'X' ? 'O' : 'X'; // byt aktuell spelare
     }

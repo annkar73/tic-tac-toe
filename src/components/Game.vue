@@ -27,6 +27,8 @@ const setPlayerName = (name) => {
 };
 
 const updateStats = (winner) => {
+    console.log('updateStats called for winner:', winner);
+    
     gamesPlayed.value++;
     if (winner === 'X') {
         winsX.value++;
@@ -41,6 +43,8 @@ const saveStatsToLocalStorage = () => {
         winsX: winsX.value,
         winsO: winsO.value
     };
+    console.log('saveStatsToLocalStorage called');
+    
     localStorage.setItem('gameStats', JSON.stringify(stats));
 };
 
@@ -57,6 +61,8 @@ const resetGame = () => {
 
 const toggleStats = () => {
     showStats.value = !showStats.value;
+    console.log('toggleStats called, showStats', showStats.value);
+    
 };
 
 onMounted(() => {
@@ -84,7 +90,9 @@ watch(players, (newPlayers) => {
     localStorage.setItem('players', JSON.stringify(newPlayers));
 }, { deep: true });
 
-watch([gamesPlayed, winsX, winsO], () => {
+watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
+    console.log('Stats changed:', { newGamesPlayed, newWinsX, newWinsO });
+    
     saveStatsToLocalStorage();
 }, { deep: true });
 

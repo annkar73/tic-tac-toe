@@ -13,9 +13,9 @@ const props = defineProps({
 <template>
     <!-- Vinnarstatistik -->
      <h2>Vinnarstatistik</h2>
-     <p>Spelare X: {{ winsX }} vinster</p>
-     <p>Spelare O: {{ winsO }} vinster</p>
-     <p>Antal spel: {{ gamesPlayed }}</p>
+     <p><strong>Spelare X:</strong> {{ winsX }} vinster</p>
+     <p><strong>Spelare O:</strong> {{ winsO }} vinster</p>
+     <p><strong>Antal spel:</strong> {{ gamesPlayed }}</p>
 
 </template>
 
