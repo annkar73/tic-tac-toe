@@ -19,3 +19,29 @@ const submitPlayerName = () => {
     <button @click="submitPlayerName">Lägg till spelare</button>
   </div>
 </template>
+
+<style scoped>
+input {
+    font-size: 16px;
+    height: 35px;
+}
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    height: auto;
+    width: auto;
+    background-color: #ffa600;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #ff6361;
+}
+
+
+</style>

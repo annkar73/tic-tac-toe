@@ -96,9 +96,9 @@ const resetGame = () => {
   justify-content: center;
   width: 100px;
   height: 100px;
-  background-color: olive;
+  background-color: #bc5090;
   color: antiquewhite;
-  border: 1px solid darkslategray;
+  border: 1px solid darkgreen;
   font-family: "Rock Salt", cursive;
   font-size: 50px;
   font-weight: 700;
@@ -106,16 +106,28 @@ const resetGame = () => {
   transition: box-shadow 0.3s ease;
 }
 .cell:hover {
-  background-color: darkolivegreen;
+  background-color: #660e60;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border: 3px solid darkslategray;
+  border: 2px solid darkslategray;
 }
-.resetBtn {
-    background-color: olive;
-    color: antiquewhite;
-    font-weight: bold;
+button {
+    margin: 10px 10px 10px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 320px;
+    background-color: #ffa600;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
-.resetBtn:hover {
-    background-color: darkolivegreen;
+button:hover {
+    background-color: #ff6361;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
+
+
 </style>

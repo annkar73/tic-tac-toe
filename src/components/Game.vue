@@ -99,40 +99,83 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
 </script>
 
 <template>
+<div class="container">
     <!-- Aktiva spelare -->
     <div v-if="playersSet">
         <h2>Luffarschack</h2>
-
+    <div class="active">
         <h4>Aktiva spelare:</h4>
-        <ul class="active">
+        <ul>
             <li v-for="(name, symbol) in players" :key="symbol"><strong>{{ symbol }}:</strong> {{ name }}</li>
         </ul>
-
+    </div>
     </div>
 
 
     <!-- Visa PlayerForm.vue en gång för att lägga till spelare -->
     <div>
         <PlayerForm @set-player-name="setPlayerName" v-if="!playersSet" />
-        <TicTacToeBoard :players="players" v-if="playersSet" @game-over="updateStats" />
+        <div class="board-container" v-if="playersSet">
+            <TicTacToeBoard :players="players"  @game-over="updateStats" />
+        </div>
 
         <!-- Knapp för att visa statistik -->
-        <button @click="toggleStats">Visa vinnarstatistik</button>
+        <button @click="toggleStats" v-if="playersSet">Visa vinster</button>
+
+        <div class="btn-container">
         <!-- Statistik över vinnare -->
         <div v-if="showStats && gamesPlayed > 0">
-            <WinnerStats :winsX="winsX" :winsO="winsO" :gamesPlayed="gamesPlayed" />
+            <WinnerStats v-if="showStats && gamesPlayed > 0" :winsX="winsX" :winsO="winsO" :gamesPlayed="gamesPlayed" />
         </div>
         <!-- Knapp för att återställa spelet -->
-         <button @click="resetGame">Börja från början</button>
-
+         <button @click="resetGame" v-if="playersSet">Börja från början</button>
+        </div>
     </div>
+</div>
 </template>
 
 <style scoped>
-.active {
+ul {
     list-style-type: none;
 }
-button {
-    margin: 10px;
+.btn-container {
+    display: flex;
+    flex-direction: column;
 }
+
+button {
+    margin: 10px 10px 5px 0;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 320px;
+    background-color: #ffa600;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #ff6361;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.board-container {
+  margin-top: 20px;
+}
+
 </style>
