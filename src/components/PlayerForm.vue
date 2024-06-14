@@ -14,7 +14,6 @@ const submitPlayerName = () => {
 
 <template>
   <div>
-    <h2>Lägg till spelare</h2>
     <input v-model="playerName" @keyup.enter="submitPlayerName" placeholder="Ange spelarnamn" />
     <button @click="submitPlayerName">Lägg till spelare</button>
   </div>
@@ -24,6 +23,7 @@ const submitPlayerName = () => {
 input {
     font-size: 16px;
     height: 35px;
+    margin-top: 5px;
 }
 button {
     margin: 10px;

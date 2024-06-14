@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
+import Welcome from './Welcome.vue';
 import PlayerForm from './PlayerForm.vue';
+import Rules from './Rules.vue';
 import TicTacToeBoard from './TicTacToeBoard.vue';
 import WinnerStats from './WinnerStats.vue';
 
@@ -114,13 +116,16 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
 
     <!-- Visa PlayerForm.vue en gång för att lägga till spelare -->
     <div>
+        <Welcome />
         <PlayerForm @set-player-name="setPlayerName" v-if="!playersSet" />
+
+        <Rules v-if="!playersSet" />
         <div class="board-container" v-if="playersSet">
             <TicTacToeBoard :players="players"  @game-over="updateStats" />
         </div>
 
         <!-- Knapp för att visa statistik -->
-        <button @click="toggleStats" v-if="playersSet">Visa vinster</button>
+        <button @click="toggleStats" v-if="playersSet">Visa resultat</button>
 
         <div class="btn-container">
         <!-- Statistik över vinnare -->

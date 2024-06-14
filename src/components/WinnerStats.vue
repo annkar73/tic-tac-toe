@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
     <div class="stats-container">
     <!-- Vinnarstatistik -->
-     <h2 class="stats-title">Spelstatistik</h2>
+     <h2 class="stats-title">Spelöversikt</h2>
      <p><strong>Spelare X:</strong> {{ winsX }} vinster</p>
      <p><strong>Spelare O:</strong> {{ winsO }} vinster</p>
      <p><strong>Antal spel:</strong> {{ gamesPlayed }}</p>
