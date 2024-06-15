@@ -18,7 +18,7 @@ const winsX = ref(0); // Antal vinster för spelare X
 const winsO = ref(0); // Antal vinster för spelare O
 const showStats = ref(false); 
 
-const setPlayerName = (name) => {
+const setPlayerName = (name: string) => {
     if (currentPlayer.value === 'X') {
         players.value.X = name;
         currentPlayer.value = 'O';
@@ -28,7 +28,7 @@ const setPlayerName = (name) => {
     }
 };
 
-const updateStats = (winner) => {
+const updateStats = (winner: string) => {
     console.log('updateStats called for winner:', winner);
     
     gamesPlayed.value++;
@@ -102,6 +102,12 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
 
 <template>
 <div class="container">
+
+
+    <!-- Visa PlayerForm.vue en gång för att lägga till spelare -->
+    <div>
+        <Welcome v-if="!playersSet" />
+        <PlayerForm @set-player-name="setPlayerName" v-if="!playersSet" />
     <!-- Aktiva spelare -->
     <div v-if="playersSet">
         <h2>Luffarschack</h2>
@@ -112,12 +118,6 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
         </ul>
     </div>
     </div>
-
-
-    <!-- Visa PlayerForm.vue en gång för att lägga till spelare -->
-    <div>
-        <Welcome />
-        <PlayerForm @set-player-name="setPlayerName" v-if="!playersSet" />
 
         <Rules v-if="!playersSet" />
         <div class="board-container" v-if="playersSet">

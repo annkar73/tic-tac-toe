@@ -15,7 +15,7 @@ const submitPlayerName = () => {
 <template>
   <div>
     <input v-model="playerName" @keyup.enter="submitPlayerName" placeholder="Ange spelarnamn" />
-    <button @click="submitPlayerName">Lägg till spelare</button>
+    <button @click="submitPlayerName" class="add-btn">Lägg till spelare</button>
   </div>
 </template>
 
@@ -23,15 +23,23 @@ const submitPlayerName = () => {
 input {
     font-size: 16px;
     height: 35px;
+    width: 320px;
     margin-top: 5px;
+    border: 2px solid #ffa600;
+    border-radius: 4px;
 }
-button {
-    margin: 10px;
+input:focus {
+  outline: none;
+  border: 2px solid #ff6361;
+  box-shadow: 0 0 5px 2px #ff6361;
+}
+.add-btn {
+    margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 500;
     height: auto;
-    width: auto;
+    width: 320px;
     background-color: #ffa600;
     color: black;
     border: none;
@@ -39,8 +47,10 @@ button {
     border-radius: 4px;
     transition: background-color 0.3s ease;
 }
-button:hover {
+.add-btn:hover {
     background-color: #ff6361;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 

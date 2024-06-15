@@ -15,7 +15,7 @@ const currentPlayer = ref('X');
 const winner = ref(''); 
 
 // Gör ett drag på spelbrädet
-const makeMove = (index) => {
+const makeMove = (index: number) => {
   if (board.value[index] === '' && !winner.value) {
     board.value[index] = currentPlayer.value; // Sätt aktuell spelares markering på vald cell
 
@@ -75,7 +75,7 @@ const resetGame = () => {
     </div>
 
     <!-- Visa vinnare och knapp för att starta om ifall spelet är över -->
-    <div v-if="winner !== undefined && winner.value != ''">
+    <div v-if="winner !== ''">
       <p v-if="winner !== 'Oavgjort'"><strong>Vinnare:</strong> {{ props.players[winner] }} ({{ winner }})</p>
       <p v-else>Oavgjort</p>
 

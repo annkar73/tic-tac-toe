@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 
 const rulesTitle = "Så här spelar man:";
 
