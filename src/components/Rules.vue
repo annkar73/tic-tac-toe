@@ -19,7 +19,8 @@ const rulesText2 = "Spelare X inleder spelet med att klicka i en ruta på spelpl
 
 <style scoped>
 .rules-container {
-    width: 320px;
+    max-width: 320px;
+    color: #660e60;
 
 }
 .title {

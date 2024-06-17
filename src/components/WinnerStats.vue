@@ -25,6 +25,7 @@ const props = defineProps({
 .stats-container {
     margin-top: 10px;
     padding: 10px;
+    color: #660e60;
 }
 .stats-title {
     font-size: 20px;

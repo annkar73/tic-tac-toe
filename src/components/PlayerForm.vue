@@ -37,17 +37,19 @@ input:focus {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     height: auto;
     width: 320px;
     background-color: #ffa600;
-    color: black;
+    color: #660e60;
     border: none;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    outline: none;
 }
-.add-btn:hover {
+.add-btn:hover,
+.add-btn:focus {
     background-color: #ff6361;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 

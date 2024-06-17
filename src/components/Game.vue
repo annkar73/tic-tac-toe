@@ -129,7 +129,7 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
 
         <div class="btn-container">
         <!-- Statistik över vinnare -->
-        <div v-if="showStats && gamesPlayed > 0">
+        <div v-if="showStats && gamesPlayed > 0" >
             <WinnerStats v-if="showStats && gamesPlayed > 0" :winsX="winsX" :winsO="winsO" :gamesPlayed="gamesPlayed" />
         </div>
         <!-- Knapp för att återställa spelet -->
@@ -140,6 +140,9 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
 </template>
 
 <style scoped>
+.active {
+    color: #660e60;
+}
 ul {
     list-style-type: none;
 }
@@ -152,31 +155,35 @@ button {
     margin: 10px 10px 5px 0;
     padding: 10px 10px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     width: 320px;
     background-color: #ffa600;
-    color: black;
+    color: #660e60;
     border: none;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    outline: none;
 }
-button:hover {
+button:hover,
+button:focus {
     background-color: #ff6361;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
 }
 h2 {
     font-size: 24px;
+    color: #660e60;
     margin-bottom: 10px;
 }
 h4 {
     font-size: 18px;
     margin-bottom: 5px;
+    color: #660e60;
 }
 .container {
-  max-width: 600px;
-  margin: auto;
+  width: 380px;
+  margin: 0;
 }
 
 .board-container {
