@@ -110,7 +110,7 @@ watch([gamesPlayed, winsX, winsO], ([newGamesPlayed, newWinsX, newWinsO]) => {
         <PlayerForm @set-player-name="setPlayerName" v-if="!playersSet" />
     <!-- Aktiva spelare -->
     <div v-if="playersSet">
-        <h2>Luffarschack</h2>
+        <h2>Tre-i-rad</h2>
     <div class="active">
         <h4>Aktiva spelare:</h4>
         <ul>
@@ -172,6 +172,7 @@ button:focus {
 
 }
 h2 {
+    font-family: "Rock Salt", cursive;
     font-size: 24px;
     color: #660e60;
     margin-bottom: 10px;
