@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const welcomeTitle = "Luffarschack";
+const welcomeTitle = "Tre-i-rad";
 
 const welcomeText1 = "Välkommen till mitt lilla spel.";
 const welcomeText2 = "Börja med att fylla i varsitt spelarnamn nedan så startar spelet automatiskt.";
@@ -19,6 +19,9 @@ const welcomeText2 = "Börja med att fylla i varsitt spelarnamn nedan så starta
 </template>
 
 <style scoped>
+h1 {
+    font-family: "Rock Salt", cursive;
+}
 .container {
     max-width: 320px;
     margin-left: 0;
