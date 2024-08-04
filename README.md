@@ -1,7 +1,12 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Xnjua3bd)
+
 # Inlämningsuppgift Tre-i-rad
 
-Denna mall innehåller ett tomt vue-projekt baserat på typescript. Er uppgift är att skapa spelet tre-i-rad med hjälp av denna mall. Eftersom ni inte har någonting att utgå ifrån så har ni fria händer att skapa just er unika lösning.
+Detta var en inlämningsuppgift i kursen Javascript fördjupning under utbildningen Front End Developer hos Medieinstitutet.   
+Vi fick ett repo med ett tomt vue-projekt baserat på typescript. Vår uppgift var att skapa spelet tre-i-rad med hjälp av denna mall.  
+Utöver betygskriterierna nedan hade vi fria händer att skapa det helt enligt eget huvud. 
+
+Jag valde att göra en ganska enkelt spelplan för att det ska vara så tydligt som möjligt och inte ha onödiga laddningstider.   
+Spelarnamnen man anger lagras i local storage, och spelet visar vem som vunnit (inkl hur många vinster) under en spelomgång. Om man väljer att rensa för att ange nya spelare återställs även vinsthistoriken.
 
 ## Betyg G
 
